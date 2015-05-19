@@ -8,8 +8,8 @@ from time import sleep
 CONF = "srun.conf"
 
 def get_mac_address(): 
-    mac=uuid.UUID(int = uuid.getnode()).hex[-12:] 
-    return ":".join([mac[e:e+2] for e in range(0,11,2)])
+	mac=uuid.UUID(int = uuid.getnode()).hex[-12:] 
+	return ":".join([mac[e:e+2] for e in range(0,11,2)])
 	
 def get_foo_package(username):
 	username_hex = b2a_hex(username)
@@ -36,8 +36,8 @@ def send_package(package):
 	addr = (server, 3338)
 	client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 	while(1):
-			client.sendto(package, addr)
-			sleep(50)
+		client.sendto(package, addr)
+		sleep(50)
 
 if __name__ == '__main__':
 	execfile(CONF, globals())
